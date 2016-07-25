@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Resume</title>
+
+  <link href="css/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900' rel='stylesheet' type='text/css'>
+  <script src="js/jQuery.js"></script>
+  <script src="js/helper.js"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+  <meta name="viewport" content="width=device-width">
+</head>
+<body class="section-background">
+  <div class="container page-background2">
+  <div id="main flex-box">
+    <div id="header" class="affix">
+      <ul id="topContacts" class="flex-box"></ul>
+    </div>
+    
+    <div id="picture" class="img-responsive"> 
+    </div>
+    <div id="contact-box-close1" class="contact-box">
+    <img id="phone" src="images/phone.png" alt="phone">
+    </div>
+    <div id="contact-box-open1" class="contact-box">
+    <hr>
+    <h2>Contact Information:</h2>
+    </div>
+
+    <div id="contact-box-close2" class="contact-box">
+    <img id="phone" src="images/phone.png" alt="phone">
+    </div>
+    <div id="contact-box-open2" class="contact-box">
+    <img id="phone" src="images/phone.png" alt="phone">
+    </div>  
+
+    <div id="gap-test"></div>
+    <div id="skilled" class="info-box border-top">
+        <div id="skilled1" class="">
+        </div>
+      <div id="skilled2" class="flex-box">
+
+      <ul id="skills"></ul>
+      <ul id="skill-level">
+        <div class="flex-box skill-level">
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="unskill-box"></div>
+          <div class="unskill-box"></div>
+        </div>
+        <div class="flex-box skill-level">
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="unskill-box"></div>
+          <div class="unskill-box"></div>
+        </div>
+        <div class="flex-box skill-level">
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="unskill-box"></div>
+          <div class="unskill-box"></div>
+          <div class="unskill-box"></div>
+        </div>
+        <div class="flex-box skill-level">
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="unskill-box"></div>
+          <div class="unskill-box"></div>
+          <div class="unskill-box"></div>
+        </div>
+        <div class="flex-box skill-level">
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+        </div>
+        <div class="flex-box skill-level">
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="skill-box"></div>
+          <div class="unskill-box"></div>
+        </div>
+      </ul>
+      </div>
+    </div>
+
+    <div id="about-me" class="info-box border-bottom">
+     <div id="about-me-buttons">
+      <button id="hide1" class="button" type="button" >Bio</button>
+      <button id="show1" class="button" type="button" >Bio</button>
+
+      <button id="hide2" class="button" type="button" >Work</button>
+      <button id="show2" class="button" type="button" >Work</button>
+
+      <button id="hide3" class="button" type="button" >Projects</button>
+      <button id="show3" class="button" type="button" >Projects</button>
+      
+      <button id="hide4" class="button" type="button" >Education</button>
+      <button id="show4" class="button" type="button" >Education</button>
+     </div>
+     <div id="about-me-content" class="clear-fix">
+      <div id="alliance-flag"> </div>
+      <div id="biography">
+      </div>
+      <div id="workExperience">
+      </div>
+      <div id="projects">
+      </div>
+      <div id="education">
+      </div>
+     </div>
+    </div>
+    
+      <div style="clear: both;"></div>
+
+<!--    <div id="mapDiv">
+      <h2>Where I've Lived and Worked</h2>
+    </div>
+    <div id="lets-connect" class="dark-gray">
+      <h2 class="orange center-text">Let's Connect</h2>
+        <ul id="footerContacts" class="flex-box">
+      </ul>
+    </div>-->
+  </div>
+  </div>
+
+
+  <script src="js/resumeBuilder.js"></script>
+
+
+  <script type="text/javascript">
+
+
+    if(document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('topContacts').style.display = 'none';
+    }
+    if(document.getElementsByTagName('h1').length === 0) {
+      document.getElementById('header').style.display = 'none';
+    }
+    if(document.getElementsByClassName('bio-entry').length === 0) {
+      document.getElementById('biography').style.display = 'none';
+    }
+    if(document.getElementsByClassName('work-entry').length === 0) {
+      document.getElementById('workExperience').style.display = 'none';
+    }
+    if(document.getElementsByClassName('project-entry').length === 0) {
+      document.getElementById('projects').style.display = 'none';
+    }
+    if(document.getElementsByClassName('education-entry').length === 0) {
+      document.getElementById('education').style.display = 'none';
+    }
+    if(document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('lets-connect').style.display = 'none';
+    }
+    if(document.getElementById('map') === null) {
+      document.getElementById('mapDiv').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
