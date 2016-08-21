@@ -65,6 +65,13 @@ p {
   height: 100%;
   opacity: .5;
 }
+#Internationalize {
+  position: absolute;
+  margin-top: 40px;
+  width: 245px;
+  z-index: 1;
+
+}
 
 h2,
 h3,
@@ -416,7 +423,7 @@ span {
   height: 215px;
   top: 200px;
   }
-  #phone {
+  .phone {
     padding-top: 90px;
     padding-left: 0px;
     height: 15%;

@@ -18,6 +18,9 @@ var HTMLwelcomeMsg = '<span class="welcome-message"><br><br><br><hr>%data%<hr></
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skill Set :</h3>';
 var HTMLskills = '<ul id="eachSkill"><span class="lite-blue-text">%data%</span></ul>';
+var HTMLskillRow = '<div class="flex-box skill-level"></div>';
+var HTMLskillLevel = '<div class="skill-box"></div>';
+var HTMLskillLevel0 = '<div class="unskill-box"></div>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
@@ -49,7 +52,7 @@ var HTMLaboutmeStart = '<div class="bio-entry"></div>';
 var HTMLfamily = '<ul><span class="red-text">%relation%</span><span class="white-text">%data%</span></ul>';
 
 
-var internationalizeButton = '<button id="Internationalize">Internationalize</button>';
+var internationalizeButton = '<button id="Internationalize" class="button"></button>';
 var googleMap = '<div id="map"></div>';
 
 

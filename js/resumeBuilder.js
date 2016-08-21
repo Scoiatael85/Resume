@@ -1,7 +1,8 @@
+ $(".container").prepend(internationalizeButton);
  var bio = {
 	"name" : "Scott J. Davis",
 	"role" : "Web Developer",
-	"contactInfo" : {
+	"contacts" : {
 		"generic" : true,
 		"opening" : "Contact Information:",
 		"mobile" : "508-809-0303",
@@ -11,13 +12,13 @@
 		"slack" : "#front-end_web-head",
 		"location" : "201 Knight Ave Attleboro, MA"
 	},
-	"picture" : "images/Me.png",
+	"biopic" : "images/Me.png",
 	"welcomeMessage" : "Ready for Action! I'm hear to tear up the world of Web Design!!",
 	"skills_start" : true,
-	"skills" : ["HTML", "CSS", "Javascript", "SQL", "Team Leadership", "Independant Work"],
 	"skillLevel" : [4, 4, 3, 3, 6, 5]
 };
 
+bio.display = function() {
 	var formattedRole = HTMLheaderRole.replace("%data%", 
 		bio.role);
 	$("#header").prepend(formattedRole);
@@ -25,68 +26,72 @@
 		bio.name);
 	$("#header").prepend(formattedName);
 	var contactGeneric = HTMLcontactGeneric.replace("%data%", 
-		bio.contactInfo.generic);
+		bio.contacts.generic);
 	var contactMobile = HTMLmobile.replace("%data%", 
-		bio.contactInfo.mobile);
+		bio.contacts.mobile);
 //	$("#header").append(contactMobile);
 	var contactMobile2 = HTMLmobile2.replace("%data%", 
-		bio.contactInfo.mobile);
+		bio.contacts.mobile);
 	$("#contact-box-open1").append(contactMobile2);
 	$("#contact-box-open2").append(contactMobile2);
 	var contactEmail = HTMLemail.replace("%data%", 
-		bio.contactInfo.email);
+		bio.contacts.email);
 //	$("#header").append(contactEmail);
 	var contactEmail2 = HTMLemail2.replace("%data%", 
-		bio.contactInfo.email);
+		bio.contacts.email);
 	$("#contact-box-open1").append(contactEmail2);
 	$("#contact-box-open2").append(contactEmail2);
 	var contactTwitter = HTMLtwitter.replace("%data%", 
-		bio.contactInfo.twitter);
+		bio.contacts.twitter);
 	$("#contact-box-open1").append(contactTwitter);
 	$("#contact-box-open2").append(contactTwitter);
 	var contactGithub = HTMLgithub.replace("%data%", 
-		bio.contactInfo.github);
+		bio.contacts.github);
 	$("#contact-box-open1").append(contactGithub);
 	$("#contact-box-open2").append(contactGithub);
 	var contactSlack = HTMLslack.replace("%data%", 
-		bio.contactInfo.slack);
+		bio.contacts.slack);
 	$("#contact-box-open1").append(contactSlack);
 	$("#contact-box-open2").append(contactSlack);
 	var contactLocation = HTMLlocation.replace("%data%", 
-		bio.contactInfo.location);
+		bio.contacts.location);
 	$("#contact-box-open1").append(contactLocation);
 	$("#contact-box-open2").append(contactLocation);
 	var formattedbioPic = HTMLbioPic.replace("%data%", 
-		bio.picture);
+		bio.biopic);
 	$("#picture").prepend(formattedbioPic);
 	var formattedMsg = HTMLwelcomeMsg.replace("%data%", 
 		bio.welcomeMessage);
 	var skillsStart = HTMLskillsStart.replace("%data%", 
 		bio.skills_start);
     var contactOpening = HTMLskillsStart.replace("Skill Set :", 
-        bio.contactInfo.opening);
+        bio.contacts.opening);
 
-if(bio.skills.length > 0) {
+if(bio.skillLevel.length > 0) {
+	bio.skills = ["HTML", "CSS", "Javascript", "SQL", "Team Leadership", "Independant Work"];
 	$("#skilled1").append(skillsStart);
 
-	var formattedskills = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedskills);
-	var formattedskills = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedskills);
-	var formattedskills = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedskills);
-	var formattedskills = HTMLskills.replace("%data%", bio.skills[3]);
-	$("#skills").append(formattedskills);
-	var formattedskills = HTMLskills.replace("%data%", bio.skills[4]);
-	$("#skills").append(formattedskills);
-	var formattedskills = HTMLskills.replace("%data%", bio.skills[5]);
-	$("#skills").append(formattedskills);
-}
-if(bio.skillLevel.length > 0) {
-	var skills
+	for(skilled in bio.skills) {
+		var formattedskills = HTMLskills.replace("%data%", bio.skills[skilled]);
+		$("#skills:last").append(formattedskills);
+	}
+
+	for(levels in bio.skillLevel) {
+		$("#skill-level:last").append(HTMLskillRow);
+		for(var level = 0; level < bio.skillLevel[levels]; level++){
+			$(".skill-level:last").append(HTMLskillLevel);
+		}
+		for(var level = bio.skillLevel[levels]; level < 6; level++){
+			$(".skill-level:last").append(HTMLskillLevel0);
+		}
+	}
 }
 
+
 $("#contact-box-open1").append(formattedMsg);
+};
+bio.display();
+
 
  var work = {
  	"start" : true,
@@ -113,7 +118,7 @@ $("#contact-box-open1").append(formattedMsg);
  	]
 };
 
-function displayWork () {
+work.display = function() {
 for (job in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
 
@@ -129,12 +134,12 @@ for (job in work.jobs) {
 	$(".work-entry:last").append(workLocation);
 	$(".work-entry:last").append(workDescription);
 	}
-}
-displayWork ();
+};
+work.display();
 
-var project = {
+var projects = {
 	"start"	: true,
-	"projects" : [
+	"porfolio" : [
 		{
 			"title" : "Build a Portfolio Site",
  			"dates" : "February 1st, 2016 - February 9th, 2016",
@@ -154,31 +159,31 @@ var project = {
  			"images" : ["images/Publication1.jpg"]
  		}
  	]
-}
-project.display = function() {
- 	for (pjt in project.projects) {
+};
+projects.display = function() {
+ 	for (pjt in projects.porfolio) {
  		$("#projects").append(HTMLprojectStart);
 
 		var projectName = HTMLprojectTitle.replace("%data%", 
-			project.projects[pjt].title);
+			projects.porfolio[pjt].title);
 		$(".project-entry:last").append(projectName);
 		var projectDates = HTMLprojectDates.replace("%data%", 
-			project.projects[pjt].dates);
+			projects.porfolio[pjt].dates);
 		$(".project-entry:last").append(projectDates);
 		var projectLocation = HTMLprojectDescription.replace("%data%", 
-			project.projects[pjt].description);
+			projects.porfolio[pjt].description);
 		$(".project-entry:last").append(projectLocation);
 
-		if (project.projects[pjt].images.length > 0) {
-			for (image in project.projects[pjt].images) {	
+		if (projects.porfolio[pjt].images.length > 0) {
+			for (image in projects.porfolio[pjt].images) {	
 				var projectImage = HTMLprojectImage.replace("%data%", 
-				project.projects[pjt].images[image]);
+				projects.porfolio[pjt].images[image]);
 				$(".project-entry:last").append(projectImage);
 			}
 		}
 	}
-}
-project.display ();
+};
+projects.display();
 
 var education = {
 	"start"	: true,
@@ -188,9 +193,23 @@ var education = {
  			"degree" : "High School Diploma",
  			"dates" : "September, 2000 - May, 2004",
  			"location" : "Attleboro, MA",
- 			"major" : "I took 10 science (including AP) classes and 6 math (including AP) classes"
+ 			"majors" : "I took 10 science (including AP) classes and 6 math (including AP) classes"
  		}
- 	]
+ 	],
+ 	"onlineCourses" : [
+ 		{
+ 			"program" : "Udacity",
+ 			"title" : "Front-end Web Developer Nanodegree",
+ 			"dates" : "February, 2016 - October, 2016",
+ 			"url" : "Udacity.com"
+		},
+		{
+			"program" : "Udemy",
+			"title" : "Javascript: Understanding the Weird Parts",
+ 			"dates" : "March, 2016 - April, 2016",
+ 			"url" : "Udemy.com"			
+		}
+	]
 };
 
 education.display = function() {
@@ -209,46 +228,28 @@ education.display = function() {
  	var educationLocation = HTMLschoolLocation.replace("%data%", 
  		education.schools[school].location);
  	$(".education-entry:last").append(educationLocation);
- 	var educationMajor = HTMLschoolMajor.replace("%data%", 
- 		education.schools[school].major);
- 	$(".education-entry:last").append(educationMajor);
+ 	var educationMajors = HTMLschoolMajor.replace("%data%", 
+ 		education.schools[school].majors);
+ 	$(".education-entry:last").append(educationMajors);
  	}
 };
-education.display ();
+education.display();
 
- var online_class = {
-	"start"	: true,
-	"schools" : [
-		{
-			"title" : "Front-end Web Developer Nanodregree",
-			"school" : "Udacity",
- 			"dates" : "February, 2016 - August, 2016",
- 			"url" : "Udacity.com",
- 		},
- 		{
-			"title" : "Javascript: Understanding the Weird Parts",
-			"school" : "Udemy",
- 			"dates" : "March, 2016 - April, 2016",
- 			"url" : "Udemy.com",
- 		}
- 	]
-};
 $(".education-entry:last").append(HTMLonlineClasses);
-for (courses in online_class.schools) {
-	$("#education").append(HTMLschoolStart);
+for (courses in education.onlineCourses) {
 
 
 	var onlineName = HTMLonlineTitle.replace("%data%", 
-		online_class.schools[courses].title);
+		education.onlineCourses[courses].title);
 	$(".education-entry:last").append(onlineName);
 	var onlineDegree = HTMLonlineSchool.replace("%data%", 
-		online_class.schools[courses].school);
+		education.onlineCourses[courses].program);
 	$(".education-entry:last").append(onlineDegree);
 	var onlineDates = HTMLonlineDates.replace("%data%", 
-		online_class.schools[courses].dates);
+		education.onlineCourses[courses].dates);
 	$(".education-entry:last").append(onlineDates);
 	var onlineLocation = HTMLonlineURL.replace("%data%", 
-		online_class.schools[courses].url);
+		education.onlineCourses[courses].url);
 	$(".education-entry:last").append(onlineLocation);
 }
 
@@ -261,7 +262,7 @@ function inName () {
     internationalName = names.join(" ");
     
     return internationalName;
-};
+}
 
  var aboutMe = {
  	"start" : true,
@@ -289,7 +290,7 @@ function inName () {
  		}
  	]
  };
-	 $('#biography').append(HTMLaboutmeStart)
+	 $('#biography').append(HTMLaboutmeStart);
  	var wifeName = HTMLfamily.replace("%relation%", 
 		aboutMe.family[0]).replace("%data%", aboutMe.family[1]);
  	$(".bio-entry:last").append(wifeName);
@@ -297,5 +298,4 @@ function inName () {
 		aboutMe.family[2]).replace("%data%", aboutMe.family[3]);
  	$(".bio-entry:last").append(ChildName);
 
-$("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
