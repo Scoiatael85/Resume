@@ -1,97 +1,71 @@
-## How do I complete this project?
+frontend-nanodegree-resume
+==========================
+# Online Resume
+_Get a programing job via programing_
 
-1. Go to the [Javascript Basics course](https://www.udacity.com/course/ud804) and select "View Course Materials."
-2. Go through the videos and assignments in this course to learn the JavaScript necessary to build your resume.
-3. Review your work against the Project Rubric (on the next page).
-4. When you are satisfied with your project, submit it according to the Submission Instructions on the next page.
+This is a resume of my skills, references, etc thrown together on a website to be easily accesable to potential employers.
 
-### By the end:
-Your resume will look something like this
-![](http://i.imgur.com/pWU1Xbl.png)
+### Internationalize:
+If you click directly on my name, you'll see it internationalize for you.
 
-And your repository will include the following files:
+### Where it stands:
+This currently is designed to have a bit of a video game feel/look. In the future this will evolve into a greater project.
 
-* **index.html**: The main HTML document. Contains links to all of the CSS and JS resources needed to render the resume, including resumeBuilder.js.
-* **js/helper.js**: Contains helper code needed to format the resume and build the map. It also has a few function shells for additional functionality. More on helper.js further down.
-* **js/resumeBuilder.js**: This file is empty. You should write your code here.
-* **js/jQuery.js**: The jQuery library.
-* **css/style.css**: Contains all of the CSS needed to style the page.
-* **README.md**: 
-The GitHub readme file.
-* and some images in the images directory.
+## Setup - Installation
+For the game to function correctly, you need to have a directory containing:
+1. index.html
+2. 'css' folder
+  * style.css
+  * bootstrap.css
+  * bootstrap.min.css
+3. 'js' folder
+  * helper.js
+  * jQuery.js
+  * resumeBuilder.js
+4. 'images' folder
+  * Publication1.jpg
+  * city.png
+  * meta-tags.jpg
+  * cloud.jpg
+  * Me.png
+  * phone.png
+  * honeycombfav.jpg
+  * bg.png
+  * bg-top.png
+  * bg-bottom.png
+5.  README.md
 
-## Your starting point...
-### js/helper.js
-Within helper.js, you’ll find a large collection of strings containing snippets of HTML. Within many snippets, you’ll find placeholder data in the form of `%data%` or `%contact%`.
+If these items are not arrainged correctly, or any part of their names (including caps-vs-lowercase),
+the resources.js and engine.js will not find them.
 
-Each string has a title that describes how it should be used. For instance, `HTMLworkStart` should be the first `<div>` in the Work section of the resume. `HTMLschoolLocation` contains a `%data%` placeholder which should be replaced with the location of one of your schools.
+## Known bugs
+Currently I'm not worrying about how pretty it is from a mobile device. That'll matter for an actual job, but for now I'm just trying to pass the class....
 
-### Your process:
-The resume has four distinct sections: work, education, projects and a header with biographical information. You’ll need to:
+## Future projects
+First and foremost is to make the colors/sizes/styles of the text look great. 
+Secondly, I want to finish what I started with the mobile style. It is currently broken since I added the map and made my skill-boxes with loops.
+Thirdly, I want to add a second and third version on the css style. I would like to have the viewer simply click a button (currently name 'not-yet') and have that completely change the look of the webiste. 
 
-1. Build four JSON objects, each one representing a different resume section. The objects that you create need to follow the schema below exactly. Property names are case-sensitive. Make sure your JSON objects are formatted correctly using <a href="http://jsonlint.com/" target="_blank">JSONlint.com</a>.
 
-* `bio` contains:
-        
-            name : string
-            role : string
-            contacts : an object with
-                  mobile: string
-                  email: string 
-                  github: string
-                  twitter: string (optional)
-                  location: string
-            welcomeMessage: string 
-            skills: array of strings
-            biopic: url
-            display: function taking no parameters
 
-* `education` contains:
-      
-            schools: array of objects with
-                 name: string
-                 location: string
-                 degree: string
-                 majors: array of strings
-                 dates: string (works with a hyphen between them)
-                 url: string
-            onlineCourses: array of objects with
-                 title: string
-                 school: string
-                 date: string (works with a hyphen between them)
-                 url: string
-            display: function taking no parameters
+## MIT License
 
-* `work` contains
-          
-            jobs: array of objects with
-                 employer: string 
-                 title: string 
-                 location: string 
-                 dates: string (Can be 'in progress')
-                 description: string 
-            display: function taking no parameters
+Copyright (c) [2016] [Scott J. Davis]
 
-* `projects` contains:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-            projects: array of objects with
-                  title: string 
-                  dates: string (works with a hyphen between them)
-                  description: string
-                  images: array with string urls
-            display: function taking no parameters
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-2. Iterate through each JSON object and append its information to index.html in the correct section.
- * First off, you’ll be using jQuery’s `selector.append()` and `selector.prepend()` functions to modify index.html. `selector.append()` makes an element appear at the end of a selected section. `selector.prepend()` makes an element appear at the beginning of a selected section.
-   * Pay close attention to the ids of the `<div>`s in index.html and the HTML snippets in helper.js. They’ll be very useful as jQuery selectors for `selector.append()` and `selector.prepend()`
-* You’ll also be using the JavaScript method `string.replace(old, new)` to swap out all the placeholder text (e.g. `%data%`) for data from your resume JSON objects.
-* Here’s an example of some code that would add the location of one your companies to the page:
-   * `var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);`
-   * `$(".work-entry:last").append(formattedLocation);`
- * Use the mockup at the page of this document as a guide for the order in which you should append elements to the page.
-3. The resume includes an interactive map. Do the following to add it. 
- * In resumeBuilder.js, append the googleMap string to `<div id=”mapDiv”>`.
- * In index.html, uncomment the Google script element: `<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>`
- * In helper.js, at the bottom of the file, uncomment code to initialize map and set fitBounds.
-4. All of your code for adding elements to the resume should be within functions. And all of your functions should be encapsulated within the same objects containing your resume data. For instance, your functions for appending work experience elements to the page should be found within the same object containing data about your work experience.
-5. It’s possible to make additional information show up when you click on the pins in the map. Check out line 174 in helper.js and the Google Maps API to get started.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

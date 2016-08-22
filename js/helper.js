@@ -111,7 +111,7 @@ function initializeMap() {
     // initializes an empty array
     var locations = [];
 
-    locations.push(bio.contactInfo.location);
+    locations.push(bio.contacts.location);
 
     education.schools.forEach(function(school){
       locations.push(school.location);
@@ -179,7 +179,7 @@ function initializeMap() {
 
 }
 
-window.addEventListener('load', initializeMap);
+//window.addEventListener('load', initializeMap);
 
 window.addEventListener('resize', function(e) {
   map.fitBounds(mapBounds);
@@ -189,119 +189,66 @@ window.addEventListener('resize', function(e) {
 $(document).ready(function(){
     $("#hide1").click(function(){
         $(".bio-entry").hide();
-        $("#alliance-flag").show();
+        $("#alliance-flag, #show1").show();
         $("#hide1").hide();
-        $("#show1").show();
-        $("#hide2").hide();
-        $("#show2").show();
-        $("#hide3").hide();
-        $("#show3").show();
-        $("#hide4").hide();
-        $("#show4").show();
     });
     $("#show1").click(function(){
         $(".bio-entry").show();
-        $(".work-entry").hide();
-        $(".project-entry").hide();
-        $(".education-entry").hide();
-        $("#alliance-flag").hide();
-        $("#show1").hide();
-        $("#hide1").show();
-        $("#hide2").hide();
-        $("#show2").show();
-        $("#hide3").hide();
-        $("#show3").show();
-        $("#hide4").hide();
-        $("#show4").show();
+        $(".work-entry, .project-entry, .education-entry, #alliance-flag, #mapDiv, #map").hide();
+        $("#hide1, #show2, #show3, #show4, #show5").show();
+        $("#show1, #hide2, #hide3, #hide4, #hide5").hide();
     });
-});
-
-$(document).ready(function(){
     $("#hide2").click(function(){
         $(".work-entry").hide();
-        $("#alliance-flag").show();
-        $("#show1").show();
-        $("#hide1").hide();
+        $("#alliance-flag, #show2").show();
         $("#hide2").hide();
-        $("#show2").show();
-        $("#hide3").hide();
-        $("#show3").show();
-        $("#hide4").hide();
-        $("#show4").show();
     });
     $("#show2").click(function(){
-        $(".bio-entry").hide();
         $(".work-entry").show();
-        $(".project-entry").hide();
-        $(".education-entry").hide();
-        $("#alliance-flag").hide();
-        $("#show1").show();
-        $("#hide1").hide();
-        $("#hide2").show();
-        $("#show2").hide();
-        $("#hide3").hide();
-        $("#show3").show();
-        $("#hide4").hide();
-        $("#show4").show();
+        $(".bio-entry, .project-entry, .education-entry, #alliance-flag, #mapDiv, #map").hide();
+        $("#show1, #hide2, #show3, #show4, #show5").show();
+        $("#hide1, #show2, #hide3, #hide4, #hide5").hide();
     });
-});
-
-$(document).ready(function(){
     $("#hide3").click(function(){
         $(".project-entry").hide();
-        $("#alliance-flag").show();
-        $("#show1").show();
-        $("#hide1").hide();
-        $("#hide2").hide();
-        $("#show2").show();
+        $("#alliance-flag, #show3").show();
         $("#hide3").hide();
-        $("#show3").show();
-        $("#hide4").hide();
-        $("#show4").show();
     });
     $("#show3").click(function(){
-        $(".bio-entry").hide();
-        $(".work-entry").hide();
         $(".project-entry").show();
-        $(".education-entry").hide();
-        $("#alliance-flag").hide();
-        $("#show1").show();
-        $("#hide1").hide();
-        $("#hide2").hide();
-        $("#show2").show();
-        $("#hide3").show();
-        $("#show3").hide();
-        $("#hide4").hide();
-        $("#show4").show();
+        $(".bio-entry, .work-entry, .education-entry, #alliance-flag, #mapDiv, #map").hide();
+        $("#show1, #show2, #hide3, #show4, #show5").show();
+        $("#hide1, #hide2, #show3, #hide4, #hide5").hide();
     });
-});
-$(document).ready(function(){
-    $("#hide4").click(function(){
+   $("#hide4").click(function(){
         $(".education-entry").hide();
-        $("#alliance-flag").show();
-        $("#show1").show();
-        $("#hide1").hide();
-        $("#hide2").hide();
-        $("#show2").show();
-        $("#hide3").hide();
-        $("#show3").show();
+        $("#alliance-flag, #show4").show();
         $("#hide4").hide();
-        $("#show4").show();
     });
     $("#show4").click(function(){
-        $(".bio-entry").hide();
-        $(".work-entry").hide();
-        $(".project-entry").hide();
         $(".education-entry").show();
-        $("#alliance-flag").hide();
-        $("#show1").show();
-        $("#hide1").hide();
-        $("#hide2").hide();
-        $("#show2").show();
-        $("#hide3").hide();
-        $("#show3").show();
-        $("#hide4").show();
-        $("#show4").hide();
+        $(".bio-entry, .work-entry, .project-entry, #alliance-flag, #mapDiv, #map").hide();
+        $("#show1, #show2, #show3, #hide4, #show5").show();
+        $("#hide1, #hide2, #hide3, #show4, #hide5").hide();
+    });
+    $("#hide5").click(function(){
+        $("#mapDiv, #map, #hide5").hide();
+        $("#alliance-flag, #show5").show();
+    });
+    $("#show5").click(function(){
+        $("#mapDiv, #map").show();
+        $(".bio-entry, .work-entry, .project-entry, .education-entry, #alliance-flag").hide();
+//        initializeMap();
+        $("#show1, #show2, #show3, #show4, #hide5").show();
+        $("#hide1, #hide2, #hide3, #hide4, #show5").hide();
+    });
+    $("#not-yet").click(function(){
+        $("#not-yet").hide();
+        $("#not-yet1").show();
+    });
+    $("#not-yet1").click(function(){
+        $("#not-yet").show();
+        $("#not-yet1").hide();
     });
     // other button to press...trying
     $("#contact-box-close1").click(function(){

@@ -3,7 +3,7 @@
 	"name" : "Scott J. Davis",
 	"role" : "Web Developer",
 	"contacts" : {
-		"generic" : true,
+		// "generic" : true,
 		"opening" : "Contact Information:",
 		"mobile" : "508-809-0303",
 		"email" : "Sdavis1985@Gmail.com",
@@ -14,7 +14,7 @@
 	},
 	"biopic" : "images/Me.png",
 	"welcomeMessage" : "Ready for Action! I'm hear to tear up the world of Web Design!!",
-	"skills_start" : true,
+	// "skills_start" : true,
 	"skillLevel" : [4, 4, 3, 3, 6, 5]
 };
 
@@ -67,34 +67,32 @@ bio.display = function() {
     var contactOpening = HTMLskillsStart.replace("Skill Set :", 
         bio.contacts.opening);
 
-if(bio.skillLevel.length > 0) {
-	bio.skills = ["HTML", "CSS", "Javascript", "SQL", "Team Leadership", "Independant Work"];
-	$("#skilled1").append(skillsStart);
+	if(bio.skillLevel.length > 0) {
+		bio.skills = ["HTML", "CSS", "Javascript", "SQL", "Team Leadership", "Independant Work"];
+		$("#skilled1").append(skillsStart);
 
-	for(skilled in bio.skills) {
-		var formattedskills = HTMLskills.replace("%data%", bio.skills[skilled]);
-		$("#skills:last").append(formattedskills);
-	}
-
-	for(levels in bio.skillLevel) {
-		$("#skill-level:last").append(HTMLskillRow);
-		for(var level = 0; level < bio.skillLevel[levels]; level++){
-			$(".skill-level:last").append(HTMLskillLevel);
+		for(skilled in bio.skills) {
+			var formattedskills = HTMLskills.replace("%data%", bio.skills[skilled]);
+			$("#skills:last").append(formattedskills);
 		}
-		for(var level = bio.skillLevel[levels]; level < 6; level++){
-			$(".skill-level:last").append(HTMLskillLevel0);
+
+		for(levels in bio.skillLevel) {
+			$("#skill-level:last").append(HTMLskillRow);
+			for(var level = 0; level < bio.skillLevel[levels]; level++){
+				$(".skill-level:last").append(HTMLskillLevel);
+			}
+			for(var level = bio.skillLevel[levels]; level < 6; level++){
+				$(".skill-level:last").append(HTMLskillLevel0);
+			}
 		}
 	}
-}
-
-
-$("#contact-box-open1").append(formattedMsg);
+	$("#contact-box-open1").append(formattedMsg);
 };
 bio.display();
 
 
  var work = {
- 	"start" : true,
+ 	// "start" : true,
  	"jobs": [
  		{
  			"employer" : "99 Restaurants",
@@ -138,7 +136,7 @@ for (job in work.jobs) {
 work.display();
 
 var projects = {
-	"start"	: true,
+	// "start"	: true,
 	"porfolio" : [
 		{
 			"title" : "Build a Portfolio Site",
@@ -186,7 +184,7 @@ projects.display = function() {
 projects.display();
 
 var education = {
-	"start"	: true,
+	// "start"	: true,
 	"schools" : [
 		{
  			"name" : "Attleboro High School",
@@ -198,15 +196,15 @@ var education = {
  	],
  	"onlineCourses" : [
  		{
- 			"program" : "Udacity",
+ 			"school" : "Udacity",
  			"title" : "Front-end Web Developer Nanodegree",
- 			"dates" : "February, 2016 - October, 2016",
+ 			"date" : "February, 2016 - October, 2016",
  			"url" : "Udacity.com"
 		},
 		{
-			"program" : "Udemy",
+			"school" : "Udemy",
 			"title" : "Javascript: Understanding the Weird Parts",
- 			"dates" : "March, 2016 - April, 2016",
+ 			"date" : "March, 2016 - April, 2016",
  			"url" : "Udemy.com"			
 		}
 	]
@@ -232,26 +230,26 @@ education.display = function() {
  		education.schools[school].majors);
  	$(".education-entry:last").append(educationMajors);
  	}
+ 	$(".education-entry:last").append(HTMLonlineClasses);
+	for (courses in education.onlineCourses) {
+
+
+		var onlineName = HTMLonlineTitle.replace("%data%", 
+			education.onlineCourses[courses].title);
+		$(".education-entry:last").append(onlineName);
+		var onlineDegree = HTMLonlineSchool.replace("%data%", 
+			education.onlineCourses[courses].school);
+		$(".education-entry:last").append(onlineDegree);
+		var onlineDates = HTMLonlineDates.replace("%data%", 
+			education.onlineCourses[courses].date);
+		$(".education-entry:last").append(onlineDates);
+		var onlineLocation = HTMLonlineURL.replace("%data%", 
+			education.onlineCourses[courses].url);
+		$(".education-entry:last").append(onlineLocation);
+	}
 };
 education.display();
 
-$(".education-entry:last").append(HTMLonlineClasses);
-for (courses in education.onlineCourses) {
-
-
-	var onlineName = HTMLonlineTitle.replace("%data%", 
-		education.onlineCourses[courses].title);
-	$(".education-entry:last").append(onlineName);
-	var onlineDegree = HTMLonlineSchool.replace("%data%", 
-		education.onlineCourses[courses].program);
-	$(".education-entry:last").append(onlineDegree);
-	var onlineDates = HTMLonlineDates.replace("%data%", 
-		education.onlineCourses[courses].dates);
-	$(".education-entry:last").append(onlineDates);
-	var onlineLocation = HTMLonlineURL.replace("%data%", 
-		education.onlineCourses[courses].url);
-	$(".education-entry:last").append(onlineLocation);
-}
 
 function inName () {
 	var internationalName = bio.name;
@@ -265,7 +263,7 @@ function inName () {
 }
 
  var aboutMe = {
- 	"start" : true,
+ 	// "start" : true,
  	"family" : ["Wife", "Brittany", "Daughter", "Aurora"],
  	"objectives" : "Getting a new damned job!!!",
  	"interests" : ["D&D", "Charity", "Beer", "Scotch", "Cigars", "MCU"],
