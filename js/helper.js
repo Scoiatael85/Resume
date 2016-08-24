@@ -49,8 +49,8 @@ var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var HTMLaboutmeStart = '<div class="bio-entry"></div>';
-var HTMLfamily = '<ul><span class="red-text">%relation%</span><span class="white-text">%data%</span></ul>';
-
+var HTMLwifeName = '<ul><span class="red-text">Wife</span><span class="white-text">%data%</span></ul>';
+var HTMLchildName = '<ul><span class="red-text">Daughter</span><span class="white-text">%data%</span></ul>';
 
 var internationalizeButton = '<button id="Internationalize" class="button"></button>';
 var googleMap = '<div id="map"></div>';
