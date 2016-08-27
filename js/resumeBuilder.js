@@ -12,7 +12,7 @@
 		"location" : "201 Knight Ave Attleboro, MA"
 	},
 	"biopic" : "images/Me.png",
-	"welcomeMessage" : "Ready for Action! I'm hear to tear up the world of Web Design!!",
+	"welcomeMessage" : "I'm sure you'll like what you see. I can't wait to hear from you!",
 	"skillLevel" : [4, 4, 3, 3, 6, 5]
 };
 
@@ -54,23 +54,17 @@ bio.display = function() {
 	$("#picture").prepend(formattedbioPic);
 	var formattedMsg = HTMLwelcomeMsg.replace("%data%", 
 		bio.welcomeMessage);
-	var skillsStart = HTMLskillsStart.replace("%data%", 
-		bio.skills_start);
-    var contactOpening = HTMLskillsStart.replace("Skill Set :", 
-        bio.contacts.opening);
 
 	if(bio.skillLevel.length > 0) {
 		bio.skills = ["HTML", "CSS", "Javascript", "SQL", "Team Leadership", "Independant Work"];
-		$("#skilled1").append(skillsStart);
+		$("#skilled1").append(HTMLskillsStart);
 
 		for(var skilled = 0; skilled < bio.skills.length; skilled++){
-//		for(skilled in bio.skills) {
 			var formattedskills = HTMLskills.replace("%data%", bio.skills[skilled]);
 			$("#skills:last").append(formattedskills);
 		}
 
 		for(var levels = 0; levels < bio.skills.length; levels++){
-//		for(levels in bio.skillLevel) {
 			$("#skill-level:last").append(HTMLskillRow);
 			for(var level = 0; level < bio.skillLevel[levels]; level++){
 				$(".skill-level:last").append(HTMLskillLevel);
@@ -86,25 +80,24 @@ bio.display();
 
 
  var work = {
- 	"jobs": [
- 		{
+ 	"jobs": [{
  			"employer" : "99 Restaurants",
  			"title" : "Assistant General Manager",
  			"dates" : "July, 2012 - Current",
- 			"location" : "Attleboro, Massachussetts",
- 			"description" : "I am manage a staff of 40+ employees in a high volume, casual dinning restaurant."
+ 			"location" : "Attleboro, Mass",
+ 			"description" : "I manage a staff of 40+ employees in a high volume, casual dinning restaurant."
  		},
  		{	"employer" : "Unos Chicago Bar & Grille",
  			"title" : "Assistant General Manager",
- 			"dates" : "September, 2008 - July, 2012",
+ 			"dates" : "Sept, 2008 - July, 2012",
  			"location" : "Portland, Maine",
  			"description" : "I am manage a staff of 40+ employees in a high volume, casual dinning restaurant."
  		},
  		{	"employer" : "Ruby Tuesday",
  			"title" : "Assistant General Manager",
- 			"dates" : "August, 2004 - September, 2008",
- 			"location" : "Taunton, Massachussetts",
- 			"description" : "I am manage a staff of 40+ employees in a high volume, casual dinning restaurant. I am manage a staff of 40+ employees in a high volume, casual dinning restaurant. I am manage a staff of 40+ employees in a high volume, casual dinning restaurant. I am manage a staff of 40+ employees in a high volume, casual dinning restaurant. I am manage a staff of 40+ employees in a high volume, casual dinning restaurant."
+ 			"dates" : "Aug, 2004 - Sept, 2008",
+ 			"location" : "Taunton, Mass",
+ 			"description" : "I am manage a staff of 40+ employees in a high volume, casual dinning restaurant."
  		}
  	]
 };
@@ -130,8 +123,7 @@ work.display = function() {
 work.display();
 
 var projects = {
-	"projects" : [
-		{
+	"projects" : [{
 			"title" : "Build a Portfolio Site",
  			"dates" : "February 1st, 2016 - February 9th, 2016",
  			"description" : "Make a responsive Porfolio for Jane Doette",
@@ -153,7 +145,6 @@ var projects = {
 };
 projects.display = function() {
 	for(var pjt = 0; pjt < projects.projects.length; pjt++){
-// 	for (pjt in projects.projects) {
  		$("#projects").append(HTMLprojectStart);
 
 		var projectName = HTMLprojectTitle.replace("%data%", 
@@ -168,7 +159,6 @@ projects.display = function() {
 
 		if (projects.projects[pjt].images.length > 0) {
 			for(var image = 0; image < projects.projects[pjt].images.length; image++){
-//			for (image in projects.projects[pjt].images) {	
 				var projectImage = HTMLprojectImage.replace("%data%", 
 				projects.projects[pjt].images[image]);
 				$(".project-entry:last").append(projectImage);
@@ -179,18 +169,16 @@ projects.display = function() {
 projects.display();
 
 var education = {
-	"schools" : [
-		{
+	"schools" : [{
  			"name" : "Attleboro High School",
  			"location" : "Attleboro, MA",
  			"degree" : "High School Diploma",
  			"majors" : "I took 10 science (including AP) classes and 6 math (including AP) classes",
- 			"dates" : "September, 2000 - May, 2004",
+ 			"dates" : "Sept, 2000 - May, 2004",
  			"url" : "ahs.attleboroschools.com"
  		}
  	],
- 	"onlineCourses" : [
- 		{
+ 	"onlineCourses" : [{
  			"title" : "Front-end Web Developer Nanodegree",
  			"school" : "Udacity",
  			"dates" : "February, 2016 - October, 2016",
@@ -212,7 +200,9 @@ education.display = function() {
 
  	var educationName = HTMLschoolName.replace("%data%", 
  		education.schools[school].name);
- 	$(".education-entry:last").append(educationName);
+ 	var educationUrl = educationName.replace("#", 
+ 		education.schools[school].url);
+ 	$(".education-entry:last").append(educationUrl);
  	var educationDegree = HTMLschoolDegree.replace("%data%", 
  		education.schools[school].degree);
  	$(".education-entry:last").append(educationDegree);
@@ -224,28 +214,20 @@ education.display = function() {
  	$(".education-entry:last").append(educationLocation);
  	var educationMajors = HTMLschoolMajor.replace("%data%", 
  		education.schools[school].majors);
- 	$(".education-entry:last").append(educationMajors);
- 	var educationUrl = HTMLonlineURL.replace("%data%", 
- 		education.schools[school].url);
- 	$(".education-entry:last").append(educationUrl);
- 	}
+ 	$(".education-entry:last").append(educationMajors); 	}
  	$(".education-entry:last").append(HTMLonlineClasses);
 	for(var courses = 0; courses < education.onlineCourses.length; courses++){
-//	for (courses in education.onlineCourses) {
-
-
 		var onlineName = HTMLonlineTitle.replace("%data%", 
 			education.onlineCourses[courses].title);
-		$(".education-entry:last").append(onlineName);
+		var onlineLocation = onlineName.replace("#", 
+			education.onlineCourses[courses].url);
+		$(".education-entry:last").append(onlineLocation);
 		var onlineDegree = HTMLonlineSchool.replace("%data%", 
 			education.onlineCourses[courses].school);
 		$(".education-entry:last").append(onlineDegree);
 		var onlineDates = HTMLonlineDates.replace("%data%", 
 			education.onlineCourses[courses].dates);
 		$(".education-entry:last").append(onlineDates);
-		var onlineLocation = HTMLonlineURL.replace("%data%", 
-			education.onlineCourses[courses].url);
-		$(".education-entry:last").append(onlineLocation);
 	}
 };
 education.display();
@@ -263,43 +245,64 @@ function inName () {
 }
 
  var aboutMe = {
- 	"family" : [
- 		{
+ 	"family" : [{
  			"wife" : "Brittany",
  			"child" : "Aurora"
  		}
  	],
+	"interests" : ["D&D", "Charity", "Beer", "Scotch", "Cigars"],
  	"objectives" : "Getting a new damned job!!!",
- 	"interests" : ["D&D", "Charity", "Beer", "Scotch", "Cigars", "MCU"],
- 	"references" : [
- 		{
+ 	"references" : [{
  			"name" : "Asta Hodge",
  			"title" : "General Manager",
- 			"relationship" : "my boss",
+ 			"relationship" : "My colleague for 1 year. My supervisor for 3 years.",
  			"phone" : "401-301-7349",
  		},
  		{
  			"name" : "Bethany Massey",
  			"title" : "Service Manager",
- 			"relationship" : "colleage",
+ 			"relationship" : "My employee for 3 years. My colleague for 1 year.",
  			"phone" : "401-741-9721",
  		},
  		{
  			"name" : "Garon Davis",
  			"title" : "Web Developer",
- 			"relationship" : "Brother",
+ 			"relationship" : "My older brother.",
  			"phone" : "508-463-7825",
  		}
  	]
  };
 aboutMe.display = function() {
-	for(var details = 0; details < aboutMe.family.length; details++){
-		$('#biography').append(HTMLaboutmeStart);
-
-	 	var wifeName = HTMLwifeName.replace("%data%", aboutMe.family[details].wife);
-	 	$(".bio-entry:last").append(wifeName);
-	 	var ChildName = HTMLchildName.replace("%data%", aboutMe.family[details].child);
-	 	$(".bio-entry:last").append(ChildName);
+	$('#biography').append(HTMLaboutmeStart);
+	var family = aboutMeheader.replace("%data%", "My Family");
+ 	$(".bio-entry:last").append(family);		
+	for(var fam = 0; fam < aboutMe.family.length; fam++){
+	 	var wifeName = HTMLaboutMedetails.replace("%title%", "Wife");
+	 	var wifeName1 = wifeName.replace("%data%", aboutMe.family[fam].wife);
+	 	$(".bio-entry:last").append(wifeName1);
+	 	var ChildName = HTMLaboutMedetails.replace("%title%", "Daughter");
+	 	var ChildName1 = ChildName.replace("%data%", aboutMe.family[fam].child);
+	 	$(".bio-entry:last").append(ChildName1);
+	}
+	var interest = aboutMeheader.replace("%data%", "My Interests");
+ 	$(".bio-entry:last").append(interest);
+	for(var interest = 0; interest < aboutMe.interests.length; interest++){
+		var formattedInterests = HTMLaboutMedetails.replace("%title%", aboutMe.interests[interest]);
+ 			aboutMe.interests.details = ["Playing for over 16 years", "Pine Street Inn", "I'm a major hop-head!", "Goto: Balvinie Dbl wood", "Great with scotch!"];
+			var interestsDetails  = formattedInterests.replace("%data%", aboutMe.interests.details[interest]);
+			$(".bio-entry:last").append(interestsDetails);
+	}
+	var interest = aboutMeheader.replace("%data%", "My References");
+ 	$(".bio-entry:last").append(interest);
+	for(var ref = 0; ref < aboutMe.references.length; ref++){
+	 	var contactName = referenceName.replace("%data%", aboutMe.references[ref].name);
+	 	$(".bio-entry:last").append(contactName);
+	 	var contactTitle = referenceTitle.replace("%data%", aboutMe.references[ref].title);
+	 	$(".bio-entry:last").append(contactTitle);
+	 	var contactDescription = referenceRelation.replace("%data%", aboutMe.references[ref].relationship);
+	 	$(".bio-entry:last").append(contactDescription);
+	 	var contactPhone = referenceRelation.replace("%data%", aboutMe.references[ref].phone);
+	 	$(".bio-entry:last").append(contactPhone);
  	}
 };
 aboutMe.display();

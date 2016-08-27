@@ -14,7 +14,7 @@ var HTMLblog = '<li class="flex-item"><span class="red-text">blog</span><span cl
 var HTMLlocation = '<li class="flex-item"><span class="red-text">location</span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message"><br><br><br><hr>%data%<hr></span>';
+var HTMLwelcomeMsg = '<span class="welcome-message"><hr>%data%<hr></span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skill Set :</h3>';
 var HTMLskills = '<ul id="eachSkill"><span class="lite-blue-text">%data%</span></ul>';
@@ -23,42 +23,42 @@ var HTMLskillLevel = '<div class="skill-box"></div>';
 var HTMLskillLevel0 = '<div class="unskill-box"></div>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkEmployer = '<a href="#" class="shadow">%data%</a>';
+var HTMLworkTitle = '<a>%data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br><br><br>%data%</p>';
+var HTMLworkDescription = '<p>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
+var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImage = '<div class="project-img"><img class="img-responsive" src="%data%"></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolDegree = '<a>%data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<p>Major: %data%</p>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<a href="#">%data%</a></br>';
 
 var HTMLaboutmeStart = '<div class="bio-entry"></div>';
-var HTMLwifeName = '<ul><span class="red-text">Wife</span><span class="white-text">%data%</span></ul>';
-var HTMLchildName = '<ul><span class="red-text">Daughter</span><span class="white-text">%data%</span></ul>';
+var aboutMeheader = '<h2>%data%</h2>';
+var HTMLaboutMedetails = '<ul><span class="lite-blue-text">%title%</span><span class="white-text">%data%</span></ul>';
+var referenceName = '<ul><a class="shadow">%data%</a></ul>';
+var referenceTitle = '<ul><a>%data%</a></ul>';
+var referenceRelation = '<ul><p>%data%</p></ul>';
 
 var internationalizeButton = '<button id="Internationalize" class="button"></button>';
 var googleMap = '<div id="map"></div>';
 
 
-/*
-The International Name will need this helper code to run. Don't delete!
-*/
 $(document).ready(function() {
   $('#Internationalize').click(function() {
     var iName = inName() || function(){};
@@ -69,32 +69,29 @@ $(document).ready(function() {
 /*
 Collecting Click Locations
 */
-clickLocations = [];
+// clickLocations = [];
 
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
-  console.log('x location: ' + x + '; y location: ' + y);
-}
+// function logClicks(x,y) {
+//   clickLocations.push(
+//     {
+//       x: x,
+//       y: y
+//     }
+//   );
+//   console.log('x location: ' + x + '; y location: ' + y);
+// }
 
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
+// $(document).click(function(loc) {
+//   var x = loc.pageX;
+//   var y = loc.pageY;
 
-  logClicks (x,y);
-});
+//   logClicks (x,y);
+// });
 
 
 
 var map;    
 
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
 function initializeMap() {
 
   var locations;
@@ -177,13 +174,10 @@ function initializeMap() {
 
   pinPoster(locations);
 
-}
-
-//window.addEventListener('load', initializeMap);
-
 window.addEventListener('resize', function(e) {
   map.fitBounds(mapBounds);
-});
+})
+};
 
  //  This is to hide or show buttons
 $(document).ready(function(){
@@ -238,7 +232,7 @@ $(document).ready(function(){
     $("#show5").click(function(){
         $("#mapDiv, #map").show();
         $(".bio-entry, .work-entry, .project-entry, .education-entry, #alliance-flag").hide();
-//        initializeMap();
+        initializeMap();
         $("#show1, #show2, #show3, #show4, #hide5").show();
         $("#hide1, #hide2, #hide3, #hide4, #show5").hide();
     });
@@ -259,6 +253,8 @@ $(document).ready(function(){
         $("#contact-box-open1").hide();
         $("#contact-box-close1").show();
     });
+    var contactOpening = HTMLskillsStart.replace("Skill Set :", 
+    "Contact Information:");
     $("#contact-box-close2").click(function(){
         $("#contact-box-close2").hide();
         $("#contact-box-open2").show();
@@ -274,5 +270,6 @@ $(document).ready(function(){
         $("#skilled1").append(HTMLskillsStart);
         $("#skills").show();
         $("#skill-level").show();
+
     });
 });
