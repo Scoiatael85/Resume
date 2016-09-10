@@ -2,17 +2,7 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<h2>%data%</h2>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="gray-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<ul class="flex-item contactInfo"><span class="gray-text">Mobile:</span></br><span class="white-text">%data%</span></ul>';
-var HTMLmobile2 = '<li class="flex-item"><span class="red-text">Mobile:</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<ul class="flex-item contactInfo"><span class="gray-text">Email:</span></br><span class="white-text">%data%</span></ul>';
-var HTMLemail2 = '<li class="flex-item"><span class="red-text">Email:</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="red-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="red-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLslack = '<li class="flex-item"><span class="red-text">#slack</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="red-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="red-text">location</span><span class="white-text">%data%</span></li>';
-
+var HTMLcontactInfo = '<li class="flex-item"><span class="red-text">%title%</span><span class="white-text"><a href="%link%">%data%</a></span></li>';
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message"><hr>%data%<hr></span>';
 
@@ -36,15 +26,15 @@ var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImage = '<div class="project-img"><img class="img-responsive" src="%data%"></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolName = '<a href="#">%data%</a>';
 var HTMLschoolDegree = '<a>%data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<p>Major: %data%</p>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineTitle = '<a href="#">%data%</a>';
+var HTMLonlineSchool = '<a>%data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<a href="#">%data%</a></br>';
 
@@ -66,30 +56,6 @@ $(document).ready(function() {
   });
 });
 
-/*
-Collecting Click Locations
-*/
-// clickLocations = [];
-
-// function logClicks(x,y) {
-//   clickLocations.push(
-//     {
-//       x: x,
-//       y: y
-//     }
-//   );
-//   console.log('x location: ' + x + '; y location: ' + y);
-// }
-
-// $(document).click(function(loc) {
-//   var x = loc.pageX;
-//   var y = loc.pageY;
-
-//   logClicks (x,y);
-// });
-
-
-
 var map;    
 
 function initializeMap() {
@@ -108,7 +74,7 @@ function initializeMap() {
     // initializes an empty array
     var locations = [];
 
-    locations.push(bio.contacts.location);
+    locations.push(bio.contactMethod.details);
 
     education.schools.forEach(function(school){
       locations.push(school.location);
@@ -255,7 +221,7 @@ $(document).ready(function(){
     });
     var contactOpening = HTMLskillsStart.replace("Skill Set :", 
     "Contact Information:");
-    $("#contact-box-close2").click(function(){
+    $("#phone-close").click(function(){
         $("#contact-box-close2").hide();
         $("#contact-box-open2").show();
         $("#skilled1").empty(HTMLskillsStart);
@@ -263,7 +229,7 @@ $(document).ready(function(){
         $("#skills").hide();
         $("#skill-level").hide();
     });
-    $("#contact-box-open2").click(function(){
+    $("#phone-open").click(function(){
         $("#contact-box-open2").hide();
         $("#contact-box-close2").show();
         $("#skilled1").empty(contactOpening);

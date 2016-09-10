@@ -16,12 +16,14 @@ For the game to function correctly, you need to have a directory containing:
 1. index.html
 2. 'css' folder
   * style.css
-  * bootstrap.css
-  * bootstrap.min.css
+  * style.min.css
 3. 'js' folder
   * helper.js
+  * helper.min.js
   * jQuery.js
+  * jQuery.min.js
   * resumeBuilder.js
+  * resumeBuilder.min.js
 4. 'images' folder
   * Publication1.jpg
   * city.png
@@ -39,12 +41,10 @@ If these items are not arrainged correctly, or any part of their names (includin
 the resources.js and engine.js will not find them.
 
 ## Known bugs
-Currently I'm not worrying about how pretty it is from a mobile device. That'll matter for an actual job, but for now I'm just trying to pass the class....
+The background isnt perfect for all mobile sizes and browzers...
 
 ## Future projects
-First and foremost is to make the colors/sizes/styles of the text look great. 
-Secondly, I want to finish what I started with the mobile style. It is currently broken since I added the map and made my skill-boxes with loops.
-Thirdly, I want to add a second and third version on the css style. I would like to have the viewer simply click a button (currently name 'not-yet') and have that completely change the look of the webiste. 
+I want to add a second and third version on the css style. I would like to have the viewer simply click a button (currently name 'not-yet') and have that completely change the look of the webiste. 
 
 
 

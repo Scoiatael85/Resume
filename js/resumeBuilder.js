@@ -3,14 +3,9 @@
 	"name" : "Scott J. Davis",
 	"role" : "Web Developer",
 	"contacts" : {
-		"opening" : "Contact Information:",
-		"mobile" : "508-809-0303",
-		"email" : "Sdavis1985@Gmail.com",
-		"twitter" : "@Scoiatael85",
-		"github" : "Scoiatael85",
-		"slack" : "#front-end_web-head",
-		"location" : "201 Knight Ave Attleboro, MA"
+		"opening" : "Contact Information:"
 	},
+	"contactMethod" : ["mobile", "email", "twitter", "github", "slack", "location"],
 	"biopic" : "images/Me.png",
 	"welcomeMessage" : "I'm sure you'll like what you see. I can't wait to hear from you!",
 	"skillLevel" : [4, 4, 3, 3, 6, 5]
@@ -23,37 +18,21 @@ bio.display = function() {
 	var formattedName = HTMLheaderName.replace("%data%", 
 		bio.name);
 	$("#header").prepend(formattedName);
-	var contactGeneric = HTMLcontactGeneric.replace("%data%", 
-		bio.contacts.generic);
-	var contactMobile = HTMLmobile.replace("%data%", 
-		bio.contacts.mobile);
-//	$("#header").append(contactMobile);
-	var contactMobile2 = HTMLmobile2.replace("%data%", 
-		bio.contacts.mobile);
-	$("#contact-box-open1, #contact-box-open2, #footerContacts").append(contactMobile2);
-	var contactEmail = HTMLemail.replace("%data%", 
-		bio.contacts.email);
-//	$("#header").append(contactEmail);
-	var contactEmail2 = HTMLemail2.replace("%data%", 
-		bio.contacts.email);
-	$("#contact-box-open1, #contact-box-open2, #footerContacts").append(contactEmail2);
-	var contactTwitter = HTMLtwitter.replace("%data%", 
-		bio.contacts.twitter);
-	$("#contact-box-open1, #contact-box-open2, #footerContacts").append(contactTwitter);
-	var contactGithub = HTMLgithub.replace("%data%", 
-		bio.contacts.github);
-	$("#contact-box-open1, #contact-box-open2, #footerContacts").append(contactGithub);
-	var contactSlack = HTMLslack.replace("%data%", 
-		bio.contacts.slack);
-	$("#contact-box-open1, #contact-box-open2").append(contactSlack);
-	var contactLocation = HTMLlocation.replace("%data%", 
-		bio.contacts.location);
-	$("#contact-box-open1, #contact-box-open2").append(contactLocation);
 	var formattedbioPic = HTMLbioPic.replace("%data%", 
 		bio.biopic);
 	$("#picture").prepend(formattedbioPic);
+
+	for(var cntInf = 0; cntInf < bio.contactMethod.length; cntInf++){
+		var contactMethod = HTMLcontactInfo.replace("%title%", bio.contactMethod[cntInf]);
+ 			bio.contactMethod.details = ["508-809-0303", "Sdavis1985@Gmail.com", "@Scoiatael85", "Scoiatael85", "@front-end_web-head", "201 Knight Ave Attleboro, MA"];
+			var contactsDetails  = contactMethod.replace("%data%", bio.contactMethod.details[cntInf]);
+	 			bio.contactMethod.details.links = ["508-809-0303", "Sdavis1985@Gmail.com", "https://twitter.com/scoiatael85", "https://github.com/scoiatael85", "@front-end_web-head", "https://www.google.com/maps/place/201+Knight+Ave,+Attleboro,+MA+02703/@41.9034013,-71.32231,17z/data=!3m1!4b1!4m5!3m4!1s0x89e45db3b4b1adcd:0x6f54d1877fd397ef!8m2!3d41.9034013!4d-71.3201213"];
+	 				var contactLinks = contactsDetails.replace("%link%", bio.contactMethod.details.links[cntInf]);
+				$("#contact-box-open1, #contact-box-open2").append(contactLinks);
+	}
 	var formattedMsg = HTMLwelcomeMsg.replace("%data%", 
 		bio.welcomeMessage);
+	$("#contact-box-open1").append(formattedMsg);
 
 	if(bio.skillLevel.length > 0) {
 		bio.skills = ["HTML", "CSS", "Javascript", "SQL", "Team Leadership", "Independant Work"];
@@ -74,7 +53,6 @@ bio.display = function() {
 			}
 		}
 	}
-	$("#contact-box-open1").append(formattedMsg);
 };
 bio.display();
 

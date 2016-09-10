@@ -5,8 +5,8 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
+  margin: 0;
+  padding: 0;
   font-family: "Orbitron", sans-serif;
 }
 
@@ -199,11 +199,6 @@ a {
   padding-bottom: 3.5px;
   padding-left: 0px;
 }
-
-.contactInfo {
-  padding-left: 2px;
-}
-
 .orange {
   background-color: #f5ae23;
 }
@@ -241,8 +236,6 @@ a {
 .black {
   background-color: black;
 }
-/*W@ffl36yRup22*/
-/* TODO: Replace with image later */
 #header {
   top: 50px;
   margin-left: auto;
@@ -257,7 +250,7 @@ ul {
 }
 
 .biopic {
-  position: fixed;
+  position: absolute;
   opacity: .6;
   z-index: -1;
 }
@@ -295,7 +288,7 @@ span {
     display: inline-block;
     font-weight: bold;
     font-size: 18px;
-    color: #999;
+    color: #f2f2f2; 
     line-height: 29px;
     width: calc((100% - 14px)/4);
 }
@@ -324,7 +317,7 @@ span {
   background-color: rgba(39, 151, 160, .2);
 }
 .contact-box {
-  position: fixed;
+  position: absolute;
   margin-left: auto;
   border: 3px;
   border-style: inset;
@@ -348,7 +341,7 @@ span {
   display: none;
 }
 .affix {
-  position: fixed;
+  position: absolute;
 }
 
 .container {
@@ -359,6 +352,12 @@ span {
   padding-left: 15px;
   padding-right: 15px;
   height: 20px;
+}
+li a {
+  color: inherit;
+  text-decoration: inherit;
+  margin-top: inherit;
+  display: inherit;
 }
 @media only screen and (min-width: 768px) {
   .container {
@@ -461,7 +460,6 @@ span {
     width: 20px;
     height: 12px;
   }
-
 }
 @media only screen and (min-width: 992px) {
   .container {
@@ -470,6 +468,9 @@ span {
   }
   #skilled1 {
     padding-left: 15px;
+  }
+  .biopic {
+    margin-left: -50px;
   }
   .page-background2 {
     background-size: 80% 80%;
@@ -567,8 +568,7 @@ span {
     margin-top: 155px;
   }
   .biopic {
-  margin-top: 200px;
-  margin-left: -200px;
+  margin-top: 150px;
   padding: 10px;
   }
   .container {
@@ -651,9 +651,6 @@ span {
   }
 
 }
-/* Media queries to handle various device widths */
-
-
 #map {
   height: 100%;
   margin: 0 5%;
@@ -664,10 +661,6 @@ span {
   width: 100%;
   padding-bottom: 5%;
 }
-
-/*@media only screen and (min-width: 500px) {
- .button span:after { content: 'Experience' }
-}*/
 
 @media only screen and (max-device-width: 800px) and (orientation: landscape) {
 
@@ -704,17 +697,12 @@ span {
     padding: 6px;
     margin: 0;
   }
-  .contactInfo {
-    display: none;
-    font-size: 14px;
-    line-height: 14px;
-  }
-  .lite-blue-text {
+  .lite-blue-text, .white-text {
     font-size: 10px;
   }
   #skills {
     padding: .5px;
-    position: fixed;
+    position: absolute;
     right: 190px;
     line-height: 18px;
     margin-top: 5px;
@@ -723,7 +711,7 @@ span {
    padding: .5px;
   }
   #skill-level {
-    position: fixed;
+    position: absolute;
     right: 25px;
     padding-left: 0px;
     margin-top: 0px;
@@ -742,15 +730,14 @@ span {
   }
   #about-me {
     height: 240px;
-    top: 170px;
   }
   #about-me-content {
-    height: 223px;
-    width: calc(100% - 60px);
-    float: right;
+    height: 185px;
+    width: calc(100% - 110px);
+    float: left;
   }
   #about-me-buttons {
-    height: 225px;
+    height: 185px;
     width: 59px;
     float: left;
   }
@@ -768,16 +755,16 @@ span {
     font-weight: normal;
     padding-bottom: 5px;
   }
-    .info-box {
-    width: 96%;
-}
+  .info-box {
+  width: 96%;
+  }
   #skilled {
     height: 200px;
     width: initial;
     margin-top: 5px;
   }
   #skilled1 {
-    margin-left: 400px;
+    margin-left: 425px;
     padding-top: 5px;
   }
   #skilled2 {
@@ -786,7 +773,7 @@ span {
   .contact-box {
   height: 30px;
   left: 380px;
-  top: 20px;
+  top: -45px;
   border-style: none;
   background: inherit;
   }
@@ -801,14 +788,18 @@ span {
   height: 144px;
   max-width: 700px;
   }
-  #phone {
-  position: fixed;
-  left: 350px;
-  padding-top: 0px;
-  width: 40px;
+  .phone {
+    margin-top: 105px;
+    margin-left: -335px;
+    margin-bottom: -130px;
   }
   #alliance-flag {
     width: 100%;
+  }
+  #Internationalize {
+  width: 205px;
+  height: 45px;
+  margin-top: 0px;
   }
   .border-top {
   background-image: url("../images/bg-top.png");
@@ -821,10 +812,23 @@ span {
   background-image: url("../images/bg-bottom.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: -315px 166px;
-  background-size: 1100px 235px;
+  background-position: -330px -4px;
+  background-size: 1100px 190px;
   }
-
+  .bottom-button {
+    height: calc((100% - 60px)/4);
+    padding-top: 5px;
+    padding-bottom: 15px;
+    width: 50px;
+    margin-bottom: 3px;
+    text-align: center;
+  }
+  .map-but {
+    border-radius: 10px 10px 0px 0px;  
+  }
+  .thrd-but {
+  border-radius: 0px 0px 10px 10px;  
+  }
 }
 
 @media only screen and (max-device-width: 675px) and (orientation: landscape) {
@@ -845,15 +849,9 @@ span {
     padding: 0;
     margin: 0;
   }
-  .contactInfo {
-    font-size: 10px;
-    line-height: 10px;
-  }
   #skilled {
     height: 150px;
-    top: 15px;
-    right: 10px;
-}
+  }
   #skills {
     right: 170px;
   }
@@ -866,12 +864,13 @@ span {
   }
   #about-me {
     height: 185px;
+    margin-top: 20px;
    }
   #about-me-content {
     height: 178px;
   }
   #about-me-buttons {
-    height: 185px;
+    height: 180px;
   }
   .button {
     line-height: 8px;
@@ -879,21 +878,23 @@ span {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  .phone {
+  width: 35px;
+  margin-left: -290px;
+  margin-bottom: -100px;
+  }
   #skilled1 {
-    margin-left: 350px;
+    margin-left: 365px;
     width: 200px;
   }
  .contact-box {
   left: 320px;
 }
-  #phone{
-    left: 300px;
-  }
   .border-top {
   background-position: 100px 8px;
   }
   .border-bottom {
-  background-size: 1100px 188px;
+  background-size: 1100px 193px;
   }
 }
 @media only screen and (max-device-width: 640px) and (orientation: landscape) {
@@ -902,7 +903,7 @@ span {
   left: 300px;
 }
   .border-top {
-  background-position: 80px 7px;
+  background-position: 65px 3px;
   }
 }
 @media only screen and (max-device-width: 575px) and (orientation: landscape) {
@@ -913,23 +914,23 @@ span {
  .contact-box {
   left: 230px;
   }
-  #phone {
-    left: 230px;
-    width: 30px;
-  }
   #about-me {
-    height: 150px;
+    height: 135px;
    }
   #about-me-content {
-    height: 150px;
+    height: 135px;
   }
   #about-me-buttons {
-    height: 150px;
+    height: 135px;
+  }
+  .phone {
+  margin-left: -200px;
+  margin-bottom: -100px;
   }
   .button {
-    padding-top: 18.5px;
-    padding-bottom: 18.5px;
-    height: calc((100% - 10px)/4);
+    padding-top: 13.5px;
+    padding-bottom: 13.5px;
+    height: calc((100% - 5px)/4);
   }
   .border-top {
   background-position: 10px 7px;
@@ -970,14 +971,11 @@ span {
     left: 200px; 
     opacity: 1;
   }
-  .contactInfo {
-    display: none;
-  }
   .info-box {
     width: 90%;
-}
+  }
   #skilled {
-    position: fixed;
+    position: absolute;
     height: 155px;
     top: 130px;
 }
@@ -986,7 +984,6 @@ span {
 }
   #skills {
     padding: 4px;
-    position: fixed;
     left: 35px;
     line-height: 20px;
   }
@@ -994,7 +991,6 @@ span {
    padding: .5px;
   }
   #skill-level {
-    position: fixed;
     padding-left: 20px;
     left: 195px;
   }
@@ -1011,7 +1007,7 @@ span {
     height: 12px;
   }
   #about-me {
-    position: fixed;
+    position: absolute;
     height: 415px;
     top: 285px;
   }
@@ -1122,8 +1118,12 @@ span {
     height: 40px;
   }
   .border-bottom {
-  background-position: -189px 311px;
+  background-position: -205px 30px;
   background-size: 588px 305px;
+  }
+  .border-top {  
+  background-position: -194px -34px;
+  background-size: 537px 260px;
   }
   #show5, #hide5, #not-yet, #not-yet1 {
     margin-top: 0px;
